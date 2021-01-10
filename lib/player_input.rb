@@ -20,6 +20,10 @@ class PlayerInput
     end
   end
 
+  def display_guesses
+    Display.guesses(@guesses)
+  end
+
   private
 
   def valid?(letter)

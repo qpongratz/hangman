@@ -27,4 +27,8 @@ class AnswerChecker
   def solved?
     @answer_state.none?('_')
   end
+
+  def display_new_state
+    Display.state(@answer_state)
+  end
 end
