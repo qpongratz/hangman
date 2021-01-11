@@ -6,6 +6,8 @@ require_relative 'display'
 
 # Handles general game flow.
 class Game
+  include Display
+
   def initialize
     @checker = AnswerChecker.new
     new_game
@@ -14,9 +16,10 @@ class Game
   def new_game
     @incorrect_guesses = 0
     @checker.new_word
+    @checker.display_state(@incorrect_guesses)
     @player = PlayerInput.new
     @game_over = false
-    # display initial state
+    play_turn
   end
 
   def play_turn
@@ -24,7 +27,7 @@ class Game
     @checker.correct_guess?(guess) ? correct_guess(guess) : incorrect_guess
     return if @game_over == true
 
-    @checker.display_state
+    @checker.display_state(@incorrect_guesses)
     @player.display_guesses
     play_turn
   end
@@ -35,7 +38,7 @@ class Game
     end_game('lose') if @incorrect_guesses > 5
   end
 
-  def correct_guess
+  def correct_guess(guess)
     @answer_state = @checker.update_answer_state(guess)
     Display.correct
     end_game('win') if @checker.solved?
@@ -43,6 +46,9 @@ class Game
 
   def end_game(status)
     @game_over = true
-    status == 2
+    puts 'game over man'
+    puts @checker.secret_word.join
   end
 end
+
+Game.new

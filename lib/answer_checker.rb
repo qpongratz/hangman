@@ -1,9 +1,13 @@
 # frozen_string_literal: true
 
 require_relative 'dictionary'
+require_relative 'display'
 
 # Keeps track of secret word and checks guessed letters
 class AnswerChecker
+  include Display
+  attr_reader :secret_word
+
   def initialize
     @word_list = Dictionary.new.dictionary
   end
@@ -28,7 +32,7 @@ class AnswerChecker
     @answer_state.none?('_')
   end
 
-  def display_new_state
-    Display.state(@answer_state)
+  def display_state(incorrect_guesses)
+    Display.state(@answer_state, incorrect_guesses)
   end
 end

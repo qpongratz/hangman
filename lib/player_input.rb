@@ -1,7 +1,10 @@
 # frozen_string_literal: true
 
+require_relative 'display'
+
 # Gets player input and checks if valid.
 class PlayerInput
+  include Display
   attr_reader :guesses
 
   def initialize
@@ -9,13 +12,13 @@ class PlayerInput
   end
 
   def guess
-    puts 'What letter would you like to guess?'
+    Display.guess_prompt
     letter = gets.chomp.downcase
     if valid?(letter)
       @guesses.push(letter)
       @letter = letter
     else
-      puts 'Invalid guess.'
+      Display.invalid_input
       guess
     end
   end
