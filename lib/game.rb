@@ -46,8 +46,7 @@ class Game
 
   def end_game(status)
     @game_over = true
-    puts 'game over man'
-    puts @checker.secret_word.join
+    status == 'win' ? Display.win : Display.lose(@checker.secret_word)
   end
 end
 
