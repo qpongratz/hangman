@@ -36,7 +36,7 @@ module Display
   def self.lose(word)
     puts GAME_STATES[6]
     puts "You've lost"
-    puts "The word was '#{word.join('')'}"
+    puts "The word was '#{word.join('')}'"
   end
 
   GAME_STATES = ["   ╒═══╗\n   ┊   ║\n       ║\n       ║\n       ║\n       ║\n┌──────╨┐",
@@ -46,5 +46,4 @@ module Display
                  "   ╒═══╗\n   ┊   ║\n  \\☹/  ║\n   |   ║\n       ║\n       ║\n┌──────╨┐",
                  "   ╒═══╗\n   ┊   ║\n  \\☹/  ║\n   |   ║\n  /    ║\n       ║\n┌──────╨┐",
                  "   ╒═══╗\n   ┊   ║\n  \\☹/  ║\n   |   ║\n  / \\  ║\n       ║\n┌──────╨┐"].freeze
-
 end
