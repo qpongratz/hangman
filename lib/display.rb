@@ -2,6 +2,11 @@
 
 # Handles displaying text
 module Display
+  def self.save_select(hash)
+    puts 'Enter the number of the save you would like to select'
+    hash.each { |k, v| puts "#{k} - #{v}"}
+  end
+
   def self.guesses(guess_array)
     puts "Letters guessed: #{guess_array.join(', ')}"
   end

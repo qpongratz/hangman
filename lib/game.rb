@@ -74,7 +74,3 @@ class Game
   #   resume_game
   # end
 end
-
-hello = Game.new
-hello.save_game
-hello.load_game(hello.file_name)

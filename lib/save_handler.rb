@@ -20,6 +20,5 @@ module SaveSystem
     loaded_variables.each do |key, value|
       instance_variable_set(key, value)
     end
-    resume_game
   end
 end
