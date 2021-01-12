@@ -9,7 +9,7 @@ class PlayerInput
 
   def initialize
     @guesses = []
-    player_name
+    player_name_prompt
   end
 
   def guess
@@ -30,7 +30,7 @@ class PlayerInput
 
   private
 
-  def player_name
+  def player_name_prompt
     Display.name_prompt
     @player_name = gets.chomp
   end

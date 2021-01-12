@@ -57,7 +57,7 @@ class Game
     instance_variables.map do |var|
       save_variables[var] = instance_variable_get(var)
     end
-    Dir.mkdir('saves') unless File.exist?'saves'
+    Dir.mkdir('saves') unless File.exist? 'saves'
     File.open("saves/#{file_name}", 'w') { |save| save.print(YAML.dump(save_variables)) }
   end
 end
