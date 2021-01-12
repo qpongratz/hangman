@@ -16,7 +16,7 @@ class PlayerInput
     Display.guess_prompt
     letter = gets.chomp.downcase
     if valid?(letter)
-      @guesses.push(letter)
+      @guesses.push(letter) unless letter == '1'
       @letter = letter
     else
       Display.invalid_input
@@ -38,6 +38,7 @@ class PlayerInput
   def valid?(letter)
     letter.between?('a', 'z') &&
       letter.length == 1 &&
-      !@guesses.include?(letter)
+      !@guesses.include?(letter) ||
+      letter == '1'
   end
 end

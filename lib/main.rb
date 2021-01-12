@@ -16,7 +16,7 @@ class Main
     i = 0
     saves.each do |file|
       if file.include?('yml')
-        @save_list[i] = file
+        @save_list["#{i}"] = file
         i += 1
       end
     end
@@ -25,8 +25,7 @@ class Main
 
   def choose_mode
     Display.mode_prompt
-    selection = gets.chomp
-    case selection
+    case gets.chomp
     when '1'
       new_game
     when '2'

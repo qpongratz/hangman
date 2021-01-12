@@ -24,6 +24,8 @@ class Game
 
   def play_turn
     guess = @player.guess
+    return save_game if guess == '1'
+
     @checker.correct_guess?(guess) ? correct_guess(guess) : incorrect_guess
     return if @game_over == true
 

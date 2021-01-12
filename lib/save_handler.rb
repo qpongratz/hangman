@@ -13,6 +13,8 @@ module SaveSystem
     end
     Dir.mkdir('saves') unless File.exist? 'saves'
     File.open("saves/#{file_name}", 'w') { |save| save.print(YAML.dump(save_variables)) }
+    puts "Game successfully saved as: #{file_name}"
+    puts 'Thank you for playing.'
   end
 
   def load_game(file)

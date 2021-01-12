@@ -2,6 +2,7 @@
 
 require_relative 'dictionary'
 require_relative 'display'
+require 'pry'
 
 # Keeps track of secret word and checks guessed letters
 class AnswerChecker
@@ -21,7 +22,7 @@ class AnswerChecker
   end
 
   def correct_guess?(guess)
-    @secret_word.include?(guess)
+    @secret_word.include?(guess) || @secret_word.include?(guess.upcase)
   end
 
   def solved?
