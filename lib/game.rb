@@ -3,6 +3,8 @@
 require_relative 'answer_checker'
 require_relative 'player_input'
 require_relative 'display'
+require 'yaml'
+require 'date'
 
 # Handles general game flow.
 class Game
@@ -15,11 +17,11 @@ class Game
 
   def new_game
     @incorrect_guesses = 0
+    @player = PlayerInput.new
     @checker.new_word
     @checker.display_state(@incorrect_guesses)
-    @player = PlayerInput.new
     @game_over = false
-    play_turn
+    # play_turn
   end
 
   def play_turn
@@ -48,6 +50,17 @@ class Game
     @game_over = true
     status == 'win' ? Display.win : Display.lose(@checker.secret_word)
   end
+
+  def save_game
+    file_name = "#{@player.player_name}-#{DateTime.now}.yml"
+    save_variables = {}
+    instance_variables.map do |var|
+      save_variables[var] = instance_variable_get(var)
+    end
+    Dir.mkdir('saves') unless File.exist?'saves'
+    File.open("saves/#{file_name}", 'w') { |save| save.print(YAML.dump(save_variables)) }
+  end
 end
 
-Game.new
+hello = Game.new
+hello.save_game

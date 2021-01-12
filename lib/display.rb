@@ -25,6 +25,10 @@ module Display
     puts 'Or type "1" to save your game.'
   end
 
+  def self.name_prompt
+    puts 'What would you like to be called?'
+  end
+
   def self.invalid_input
     puts 'aint no letter'
   end
