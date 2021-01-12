@@ -7,10 +7,11 @@ require 'pry'
 # Keeps track of secret word and checks guessed letters
 class AnswerChecker
   include Display
+  include FileReader
   attr_reader :secret_word
 
   def initialize
-    @secret_word = Dictionary.new.word.split('')
+    @secret_word = make_word.split('')
     @answer_state = Array.new(@secret_word.length, '_')
   end
 

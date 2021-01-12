@@ -5,7 +5,7 @@ module Display
   def self.intro
     puts 'small introduction'
   end
-  
+
   def self.save_select(hash)
     puts 'Enter the number of the save you would like to select'
     hash.each { |k, v| puts "#{k} - #{v}"}
@@ -50,7 +50,6 @@ module Display
 
   def self.invalid_input
     puts 'Invalid Input. Try again.'
-    sleep 1
   end
 
   def self.win
