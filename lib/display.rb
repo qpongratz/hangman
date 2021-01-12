@@ -2,9 +2,19 @@
 
 # Handles displaying text
 module Display
+  def self.intro
+    puts 'small introduction'
+  end
+  
   def self.save_select(hash)
     puts 'Enter the number of the save you would like to select'
     hash.each { |k, v| puts "#{k} - #{v}"}
+  end
+
+  def self.mode_prompt
+    puts 'Would you like to start a new game or load a previous game?'
+    puts '1 - Start a new game'
+    puts '2 - Load a game'
   end
 
   def self.guesses(guess_array)
@@ -39,7 +49,8 @@ module Display
   end
 
   def self.invalid_input
-    puts 'aint no letter'
+    puts 'Invalid Input. Try again.'
+    sleep 1
   end
 
   def self.win

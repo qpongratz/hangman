@@ -17,7 +17,7 @@ class Game
     @player = PlayerInput.new
     @checker = AnswerChecker.new
     @incorrect_guesses = 0
-    @player = PlayerInput.new
+    @checker.display_state(@incorrect_guesses)
     @game_over = false
     play_turn
   end
