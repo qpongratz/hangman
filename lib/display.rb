@@ -7,7 +7,7 @@ module Display
       Welcome to the world of Hang 'em
       The year is 2509 and you are about to witness the Tribunal.
       That is, unless you can save the would-be executed.
-      You are an Invoker and with your power, you can teleport the judged away.
+      You are an Invoker and with your power, you can teleport people.
       However, in order for your teleportation magic to have any effect...
       You will have to know the exact single word on their mind.
       6 incorrect letter guesses and you will have wasted too much time.
@@ -21,7 +21,7 @@ module Display
   end
 
   def self.mode_prompt
-    puts 'Would you like to start a new game or load a previous game?'
+    puts 'Would you like to start a new game, load a previous game, or read the lore?'
     puts '1 - Start a new game'
     puts '2 - Load a game'
     puts '3 - Lore'
