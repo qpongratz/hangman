@@ -63,10 +63,12 @@ module Display
     puts 'Invalid Input. Try again.'
   end
 
-  def self.win(name)
+  def self.win(name, word)
     puts "You've won."
     sleep 1
     puts "You saved #{name} from death."
+    sleep 1
+    puts "You wonder why #{word.join('')} was on #{name}'s mind."
   end
 
   def self.lose(name, word)

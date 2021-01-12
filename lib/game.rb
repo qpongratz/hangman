@@ -41,6 +41,7 @@ class Game
 
   def resume_game
     Display.welcome
+    puts "#{@name} is at the gallows."
     @checker.display_state(@incorrect_guesses)
     @player.display_guesses
     play_turn
@@ -60,6 +61,6 @@ class Game
 
   def end_game(status)
     @game_over = true
-    status == 'win' ? Display.win(@name) : Display.lose(@name, @checker.secret_word)
+    status == 'win' ? Display.win(@name, @checker.secret_word) : Display.lose(@name, @checker.secret_word)
   end
 end
