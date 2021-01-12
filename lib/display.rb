@@ -48,8 +48,13 @@ module Display
     puts 'Or type "1" to save your game.'
   end
 
+  def self.save_success(file_name)
+    puts "Game successfully saved as: #{file_name}"
+    puts 'Thank you for playing.'
+  end
+
   def self.welcome
-    puts "Welcome back."
+    puts 'Welcome back.'
   end
 
   def self.invalid_input
