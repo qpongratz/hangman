@@ -2,8 +2,15 @@
 
 # Handles displaying text
 module Display
-  def self.intro
-    puts 'small introduction'
+  def self.lore
+    puts <<-HEREDOC
+      Welcome to the world of Hang 'em
+      The year is 2509 and you are about to witness the Tribunal.
+      That is, unless you can save the would-be executed.
+      You are an Invoker and with your power, you can teleport the judged away.
+      However, in order for your teleportation magic to have any effect...
+      You will have to know the exact single word on their mind.
+    HEREDOC
   end
 
   def self.save_select(hash)
@@ -15,6 +22,7 @@ module Display
     puts 'Would you like to start a new game or load a previous game?'
     puts '1 - Start a new game'
     puts '2 - Load a game'
+    puts '3 - Lore'
   end
 
   def self.guesses(guess_array)
@@ -53,7 +61,7 @@ module Display
   end
 
   def self.win(name)
-    puts "You'v won."
+    puts "You've won."
     puts "You saved #{name} from death."
   end
 

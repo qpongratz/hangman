@@ -6,7 +6,6 @@ require_relative 'game'
 class Main
   def initialize
     @current_game = Game.new
-    Display.intro
     choose_mode
   end
 
@@ -30,6 +29,9 @@ class Main
       new_game
     when '2'
       load_game
+    when '3'
+      Display.lore
+      choose_mode
     else
       Display.invalid_input
       choose_mode
