@@ -52,13 +52,15 @@ module Display
     puts 'Invalid Input. Try again.'
   end
 
-  def self.win
-    puts 'you won'
+  def self.win(name)
+    puts "You'v won."
+    puts "You saved #{name} from death."
   end
 
-  def self.lose(word)
+  def self.lose(name, word)
     puts GAME_STATES[6]
     puts "You've lost"
+    puts "#{name} has been hung."
     puts "The word was '#{word.join('')}'"
   end
 

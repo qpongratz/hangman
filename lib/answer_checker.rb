@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative 'dictionary'
+require_relative 'file_reader'
 require_relative 'display'
 require 'pry'
 

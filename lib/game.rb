@@ -4,6 +4,7 @@ require_relative 'answer_checker'
 require_relative 'player_input'
 require_relative 'display'
 require_relative 'save_handler'
+require_relative 'file_reader'
 require 'yaml'
 require 'date'
 
@@ -11,6 +12,7 @@ require 'date'
 class Game
   include Display
   include SaveSystem
+  include FileReader
   attr_reader :file_name
 
   def start_game
@@ -19,6 +21,8 @@ class Game
     @incorrect_guesses = 0
     @checker.display_state(@incorrect_guesses)
     @game_over = false
+    @name = make_name
+    puts "#{@name} steps up to the gallows."
     play_turn
   end
 
@@ -55,6 +59,6 @@ class Game
 
   def end_game(status)
     @game_over = true
-    status == 'win' ? Display.win : Display.lose(@checker.secret_word)
+    status == 'win' ? Display.win(@name) : Display.lose(@name, @checker.secret_word)
   end
 end
