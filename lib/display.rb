@@ -29,6 +29,10 @@ module Display
     puts 'What would you like to be called?'
   end
 
+  def self.welcome(name)
+    puts "Welcome back, #{name}"
+  end
+
   def self.invalid_input
     puts 'aint no letter'
   end
