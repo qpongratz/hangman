@@ -24,18 +24,13 @@ class Main
 
   def choose_mode
     Display.mode_prompt
-    case gets.chomp
-    when '1'
-      new_game
-    when '2'
-      load_game
-    when '3'
-      Display.lore
-      choose_mode
-    else
-      Display.invalid_input
-      choose_mode
-    end
+    choice = gets.chomp
+    return new_game if choice == '1'
+    return load_game if choice == '2'
+    return lore if choice == '3'
+
+    Display.invalid_input
+    choose_mode
   end
 
   def load_game
@@ -52,6 +47,11 @@ class Main
 
   def new_game
     @current_game.start_game
+  end
+
+  def lore
+    Display.lore
+    choose_mode
   end
 end
 

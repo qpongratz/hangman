@@ -10,6 +10,8 @@ module Display
       You are an Invoker and with your power, you can teleport the judged away.
       However, in order for your teleportation magic to have any effect...
       You will have to know the exact single word on their mind.
+      6 incorrect letter guesses and you will have wasted too much time.
+      Good luck.
     HEREDOC
   end
 
