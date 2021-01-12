@@ -3,20 +3,23 @@
 require_relative 'answer_checker'
 require_relative 'player_input'
 require_relative 'display'
+require_relative 'save_handler'
 require 'yaml'
 require 'date'
 
 # Handles general game flow.
 class Game
   include Display
+  include SaveSystem
   attr_reader :file_name
 
-  def initialize
+  def start_game
+    @player = PlayerInput.new
     @checker = AnswerChecker.new
     @incorrect_guesses = 0
     @player = PlayerInput.new
     @game_over = false
-    resume_game
+    play_turn
   end
 
   def play_turn
@@ -53,23 +56,25 @@ class Game
     status == 'win' ? Display.win : Display.lose(@checker.secret_word)
   end
 
-  def save_game
-    @file_name = "#{@player.player_name}-#{DateTime.now}.yml"
-    save_variables = {}
-    instance_variables.map do |var|
-      save_variables[var] = instance_variable_get(var)
-    end
-    Dir.mkdir('saves') unless File.exist? 'saves'
-    File.open("saves/#{file_name}", 'w') { |save| save.print(YAML.dump(save_variables)) }
-  end
+  # def save_game
+  #   @file_name = "#{@player.player_name}-#{DateTime.now}.yml"
+  #   save_variables = {}
+  #   instance_variables.map do |var|
+  #     save_variables[var] = instance_variable_get(var)
+  #   end
+  #   Dir.mkdir('saves') unless File.exist? 'saves'
+  #   File.open("saves/#{file_name}", 'w') { |save| save.print(YAML.dump(save_variables)) }
+  # end
 
-  def load_game(file_name)
-    loaded_variables = YAML.load(File.open("saves/#{file_name}", 'r').read)
-    loaded_variables.each do |key, value|
-      instance_variable_set(key, value)
-    end
-    resume_game
-  end
+  # def load_game(file_name)
+  #   loaded_variables = YAML.load(File.open("saves/#{file_name}", 'r').read)
+  #   loaded_variables.each do |key, value|
+  #     instance_variable_set(key, value)
+  #   end
+  #   resume_game
+  # end
 end
 
-Game.new
+hello = Game.new
+hello.save_game
+hello.load_game(hello.file_name)
