@@ -2,7 +2,6 @@
 
 require_relative 'file_reader'
 require_relative 'display'
-require 'pry'
 
 # Keeps track of secret word and checks guessed letters
 class AnswerChecker

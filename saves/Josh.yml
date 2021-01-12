@@ -1,0 +1,20 @@
+---
+:@player: !ruby/object:PlayerInput
+  guesses: []
+  letter: '1'
+:@checker: !ruby/object:AnswerChecker
+  secret_word:
+  - p
+  - u
+  - p
+  - p
+  - y
+  answer_state:
+  - _
+  - _
+  - _
+  - _
+  - _
+:@incorrect_guesses: 0
+:@game_over: false
+:@name: Josh F.

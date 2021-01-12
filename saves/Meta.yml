@@ -1,0 +1,22 @@
+---
+:@player: !ruby/object:PlayerInput
+  guesses: []
+  letter: '1'
+:@checker: !ruby/object:AnswerChecker
+  secret_word:
+  - h
+  - a
+  - n
+  - g
+  - e
+  - m
+  answer_state:
+  - _
+  - _
+  - _
+  - _
+  - _
+  - _
+:@incorrect_guesses: 0
+:@game_over: false
+:@name: Quentin

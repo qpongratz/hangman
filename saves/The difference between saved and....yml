@@ -1,0 +1,27 @@
+---
+:@player: !ruby/object:PlayerInput
+  guesses:
+  - a
+  - v
+  - e
+  - d
+  letter: '1'
+:@checker: !ruby/object:AnswerChecker
+  secret_word:
+  - g
+  - r
+  - a
+  - v
+  - e
+  - d
+  answer_state: &1
+  - _
+  - _
+  - a
+  - v
+  - e
+  - d
+:@incorrect_guesses: 5
+:@game_over: false
+:@name: Ruthie
+:@answer_state: *1
