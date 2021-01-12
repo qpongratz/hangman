@@ -9,11 +9,7 @@ class AnswerChecker
   attr_reader :secret_word
 
   def initialize
-    @word_list = Dictionary.new.dictionary
-  end
-
-  def new_word
-    @secret_word = @word_list.sample.split('')
+    @secret_word = Dictionary.new.word.split('')
     @answer_state = Array.new(@secret_word.length, '_')
   end
 

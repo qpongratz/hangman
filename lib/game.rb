@@ -13,16 +13,10 @@ class Game
 
   def initialize
     @checker = AnswerChecker.new
-    new_game
-  end
-
-  def new_game
     @incorrect_guesses = 0
     @player = PlayerInput.new
-    @checker.new_word
-    @checker.display_state(@incorrect_guesses)
     @game_over = false
-    # play_turn
+    resume_game
   end
 
   def play_turn
@@ -78,6 +72,4 @@ class Game
   end
 end
 
-hello = Game.new
-hello.save_game
-hello.load_game(hello.file_name)
+Game.new
