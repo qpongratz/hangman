@@ -15,7 +15,7 @@ class Main
     i = 0
     saves.each do |file|
       if file.include?('yml')
-        @save_list["#{i}"] = file
+        @save_list[i.to_s] = file
         i += 1
       end
     end
