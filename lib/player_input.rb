@@ -9,7 +9,6 @@ class PlayerInput
 
   def initialize
     @guesses = []
-    player_name_prompt
   end
 
   def guess
@@ -29,11 +28,6 @@ class PlayerInput
   end
 
   private
-
-  def player_name_prompt
-    Display.name_prompt
-    @player_name = gets.chomp
-  end
 
   def valid?(letter)
     letter.between?('a', 'z') &&

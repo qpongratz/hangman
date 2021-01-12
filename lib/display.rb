@@ -30,7 +30,7 @@ module Display
   end
 
   def self.state(state_array, incorrect_guesses)
-    puts "Number wrong times: #{incorrect_guesses}"
+    puts "Number of incorrect guesses: #{incorrect_guesses}"
     puts GAME_STATES[incorrect_guesses]
     puts state_array.join(' ')
   end
@@ -48,12 +48,8 @@ module Display
     puts 'Or type "1" to save your game.'
   end
 
-  def self.name_prompt
-    puts 'What would you like to be called?'
-  end
-
-  def self.welcome(name)
-    puts "Welcome back, #{name}"
+  def self.welcome
+    puts "Welcome back."
   end
 
   def self.invalid_input
@@ -62,14 +58,17 @@ module Display
 
   def self.win(name)
     puts "You've won."
+    sleep 1
     puts "You saved #{name} from death."
   end
 
   def self.lose(name, word)
     puts GAME_STATES[6]
     puts "You've lost"
+    sleep 1
     puts "#{name} has been hung."
-    puts "The word was '#{word.join('')}'"
+    sleep 1
+    puts "#{name}'s final thought was '#{word.join('')}'"
   end
 
   GAME_STATES = ["   ╒═══╗\n   ┊   ║\n       ║\n       ║\n       ║\n       ║\n┌──────╨┐",

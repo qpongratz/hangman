@@ -23,6 +23,7 @@ class Game
     @game_over = false
     @name = make_name
     puts "#{@name} steps up to the gallows."
+    sleep 1
     play_turn
   end
 
@@ -39,7 +40,7 @@ class Game
   end
 
   def resume_game
-    Display.welcome(@player.player_name)
+    Display.welcome
     @checker.display_state(@incorrect_guesses)
     @player.display_guesses
     play_turn
